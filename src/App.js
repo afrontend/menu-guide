@@ -11,7 +11,9 @@ function App() {
 
   const [ newMenuName, setNewMenuName ] = useState('');
 
-  function menu(m, index) {
+  function Menu({ menu }) {
+    const m = menu.menu;
+    const index = menu.index;
 
     const menuName = m.name;
 
@@ -60,7 +62,7 @@ function App() {
     setNewMenuName('');
   }
 
-  function title() {
+  function Title() {
     return  (
       <div className="panel-block">
         <input onChange={ handleChange } value={ newMenuName } className="input" type="text" /> &nbsp;
@@ -76,12 +78,13 @@ function App() {
         <p className="panel-tabs">
           <a href="/" className="is-active">커피</a>
         </p>
-        { title() }
+        { <Title /> }
         {
           menuList && menuList.filter(m => {
             return newMenuName ? m.name.includes(newMenuName) : true;
           }).map((m, index) => {
-            return menu(m, index);
+            const menu = { menu: m, index };
+            return <Menu menu={menu} />;
           })
         }
       </nav>
