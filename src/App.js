@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  const [ menuList, setMenu ] = useState([
+  const [ menuList, setMenuList ] = useState([
     { name: '아이스 라떼'      , count: 0 },
     { name: '아이스 아메리카노', count: 0 },
     { name: '핫 라떼'          , count: 0 },
@@ -16,7 +16,7 @@ function App() {
     const menuName = m.name;
 
     const increment = () => {
-      setMenu(menuList.map(m => {
+      setMenuList(menuList.map(m => {
         if (m.name === menuName) {
           m.count = m.count + 1;
         }
@@ -25,7 +25,7 @@ function App() {
     };
 
     const decrement = () => {
-      setMenu(menuList.map(m => {
+      setMenuList(menuList.map(m => {
         if (m.name === menuName) {
           m.count = m.count - 1;
         }
@@ -47,7 +47,7 @@ function App() {
   function addMenu() {
     if (newMenuName) {
       menuList.push({ name: newMenuName, count: 0 });
-      setMenu(menuList);
+      setMenuList(menuList);
       clearMenuName();
     }
   }
