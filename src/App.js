@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import './App.css';
 
 function App() {
@@ -9,6 +9,26 @@ function App() {
     { name: '핫 아메리카노'    , count: 0 }
   ]);
 
+  const increment = menuName => {
+    setMenuList(menuList.map(m => {
+      if (m.name === menuName) {
+        m.count = m.count + 1;
+      }
+      return m;
+    }));
+  };
+
+  const decrement = menuName => {
+    setMenuList(menuList.map(m => {
+      if (m.name === menuName) {
+        m.count = m.count - 1;
+      }
+      return m;
+    }).filter(m => {
+      return m.count !== -1;
+    }));
+  };
+
   const [ newMenuName, setNewMenuName ] = useState('');
 
   function Menu({ menu }) {
@@ -16,32 +36,25 @@ function App() {
     const index = menu.index;
 
     const menuName = m.name;
+    const inc = useCallback(
+      () => {
+        increment(menuName)
+      },
+      [menuName]
+    );
 
-    const increment = () => {
-      setMenuList(menuList.map(m => {
-        if (m.name === menuName) {
-          m.count = m.count + 1;
-        }
-        return m;
-      }));
-    };
-
-    const decrement = () => {
-      setMenuList(menuList.map(m => {
-        if (m.name === menuName) {
-          m.count = m.count - 1;
-        }
-        return m;
-      }).filter(m => {
-        return m.count !== -1;
-      }));
-    };
+    const dec = useCallback(
+      () => {
+        decrement(menuName)
+      },
+      [menuName]
+    );
 
     return (
       <div key={ index } className="panel-block">
-        <div className="button is-success is-fullwidth" onClick={ increment }><span className="title is-6">{ m.name }</span></div>&nbsp;
+        <div className="button is-success is-fullwidth" onClick={ inc }><span className="title is-6">{ m.name }</span></div>&nbsp;
         <div className="button is-outlined is-1"><span className="title is-6">{ m.count }</span></div>&nbsp;
-        <div className="button is-danger is-1" onClick={ decrement }><span className="title is-6">X</span></div>
+        <div className="button is-danger is-1" onClick={ dec }><span className="title is-6">X</span></div>
       </div>
     );
   }
