@@ -80,7 +80,7 @@ function App() {
         </div>
         {
           menuList && menuList.filter(m => {
-            return true;
+            return newMenuName ? m.name.includes(newMenuName) : true;
           }).map((m, index) => {
             const menu = { menu: m, index };
             return <Menu key={index} menu={menu} />;
