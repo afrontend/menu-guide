@@ -97,7 +97,7 @@ function App() {
             return newMenuName ? m.name.includes(newMenuName) : true;
           }).map((m, index) => {
             const menu = { menu: m, index };
-            return <Menu menu={menu} />;
+            return <Menu key={index} menu={menu} />;
           })
         }
       </nav>
