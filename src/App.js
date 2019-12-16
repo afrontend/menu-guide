@@ -29,8 +29,6 @@ function App() {
     }));
   };
 
-  const [ newMenuName, setNewMenuName ] = useState('');
-
   function Menu({ menu }) {
     const m = menu.menu;
     const index = menu.index;
@@ -59,30 +57,14 @@ function App() {
     );
   }
 
+  const [ newMenuName, setNewMenuName ] = useState('');
+
   function addMenu() {
     if (newMenuName) {
       menuList.push({ name: newMenuName, count: 0 });
       setMenuList(menuList);
-      clearMenuName();
+      setNewMenuName('');
     }
-  }
-
-  function handleChange(event) {
-    setNewMenuName(event.target.value);
-  }
-
-  function clearMenuName() {
-    setNewMenuName('');
-  }
-
-  function Title() {
-    return  (
-      <div className="panel-block">
-        <input onChange={ handleChange } value={ newMenuName } className="input" type="text" /> &nbsp;
-        <div className="button is-danger is-1" onClick={ clearMenuName }><span className="title is-6">X</span></div> &nbsp;
-        <div className="button is-primary is-fullwidth" onClick={ addMenu }><span className="title is-6">이거요</span></div>
-      </div>
-    );
   }
 
   return (
@@ -91,10 +73,14 @@ function App() {
         <p className="panel-tabs">
           <a href="/" className="is-active">커피</a>
         </p>
-        { <Title /> }
+        <div className="panel-block">
+          <input onChange={e => setNewMenuName(e.target.value)} value={newMenuName} className="input" type="text" /> &nbsp;
+          <div className="button is-danger is-1" onClick={() => setNewMenuName('') }><span className="title is-6">X</span></div> &nbsp;
+          <div className="button is-primary is-fullwidth" onClick={ addMenu }><span className="title is-6">이거요</span></div>
+        </div>
         {
           menuList && menuList.filter(m => {
-            return newMenuName ? m.name.includes(newMenuName) : true;
+            return true;
           }).map((m, index) => {
             const menu = { menu: m, index };
             return <Menu key={index} menu={menu} />;
