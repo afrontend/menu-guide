@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "주문할 메뉴 정리",
   "private": true,
+  "homepage": "https://afrontend.github.io/game/menu-guide",
   "dependencies": {
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

@@ -1,5 +1,7 @@
 # menu-guide
 
+[![menu guide screenshot](https://agvim.files.wordpress.com/2019/12/menu-guide.png "menu guide screenshot")](https://afrontend.github.io/game/menu-guide/)
+
 ## Installation
 
 ```sh
