@@ -1,13 +1,39 @@
 import React, { useState, useCallback } from 'react';
 import './App.css';
 
-function App() {
-  const [ menuList, setMenuList ] = useState([
+function getJsonFromUrl(qs) {
+  if (!qs) return {};
+  try {
+    let a = qs.split('?')[1].split('#')[0].split('&');
+    let prop;
+    let arg;
+    let args = {};
+
+    for (prop in a) {
+      if (a.hasOwnProperty(prop)) {
+        arg = a[prop].split('=');
+        args[arg[0]] = arg[1];
+      }
+    }
+    return args;
+  } catch (e) {
+    console.log('Parsing Error', qs);
+    return {};
+  }
+}
+
+function getMenus() {
+  console.log(getJsonFromUrl(window.location.search))
+  return [
     { name: '아이스 라떼'      , count: 0 },
     { name: '아이스 아메리카노', count: 0 },
     { name: '핫 라떼'          , count: 0 },
     { name: '핫 아메리카노'    , count: 0 }
-  ]);
+  ];
+}
+
+function App() {
+  const [ menuList, setMenuList ] = useState(getMenus());
 
   const increment = menuName => {
     setMenuList(menuList.map(m => {
