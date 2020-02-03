@@ -23,13 +23,18 @@ function getJsonFromUrl(qs) {
 }
 
 function getMenus() {
-  console.log(getJsonFromUrl(window.location.search))
-  return [
-    { name: '아이스 라떼'      , count: 0 },
-    { name: '아이스 아메리카노', count: 0 },
-    { name: '핫 라떼'          , count: 0 },
-    { name: '핫 아메리카노'    , count: 0 }
-  ];
+  const menuStr = (getJsonFromUrl(window.location.search).menus)
+  if (menuStr) {
+    const menuList = menuStr.split(',');
+    return menuList.map(menu => ({ name: decodeURIComponent(menu), count: 0 }));
+  } else {
+    return [
+      { name: '아이스 라떼'      , count: 0 },
+      { name: '아이스 아메리카노', count: 0 },
+      { name: '핫 라떼'          , count: 0 },
+      { name: '핫 아메리카노'    , count: 0 }
+    ];
+  }
 }
 
 function App() {
