@@ -22,6 +22,7 @@ function getJsonFromUrl(qs) {
   }
 }
 
+
 function getMenus() {
   const menuStr = (getJsonFromUrl(window.location.search).menus)
   if (menuStr) {
@@ -59,6 +60,14 @@ function App() {
       return m.count !== -1;
     }));
   };
+
+  function Link({ menu }) {
+    return (
+      <div className="panel-block">
+        <div className="button is-primary is-fullwidth"><span className="title is-6"></span></div>
+      </div>
+    );
+  }
 
   function Menu({ menu }) {
     const m = menu.menu;
@@ -117,6 +126,7 @@ function App() {
             return <Menu key={index} menu={menu} />;
           })
         }
+        <Link />
       </nav>
     </div>
   );
