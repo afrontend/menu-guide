@@ -61,11 +61,16 @@ function App() {
     }));
   };
 
-  function Link({ menu }) {
+  function getUrlParameter(menuList) {
+    return '?menus=' + menuList.map(m => m.name).join(',');
+  }
+
+  function Link({ menuList }) {
+    const commaSeperatedMenus = getUrlParameter(menuList);
+    console.log(commaSeperatedMenus)
+    const url = window.location.origin + '/' + commaSeperatedMenus;
     return (
-      <div className="panel-block">
-        <div className="button is-primary is-fullwidth"><span className="title is-6"></span></div>
-      </div>
+      <a href={url}>{url}</a>
     );
   }
 
@@ -126,7 +131,7 @@ function App() {
             return <Menu key={index} menu={menu} />;
           })
         }
-        <Link />
+        <Link menuList={menuList} />
       </nav>
     </div>
   );
