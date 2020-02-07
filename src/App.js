@@ -68,7 +68,8 @@ function App() {
   function Link({ menuList }) {
     const commaSeperatedMenus = getUrlParameter(menuList);
     console.log(commaSeperatedMenus)
-    const url = window.location.origin + '/' + commaSeperatedMenus;
+    const { origin, pathname } = window.location;
+    const url = origin + pathname + commaSeperatedMenus;
     return (
       <a href={url}>{url}</a>
     );
