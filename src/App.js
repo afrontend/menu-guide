@@ -24,7 +24,7 @@ function getJsonFromUrl(qs) {
 
 
 function getMenus() {
-  const menuStr = (getJsonFromUrl(window.location.search).menus)
+  const menuStr = getJsonFromUrl(window.location.search).menus;
   if (menuStr) {
     const menuList = menuStr.split(',');
     return menuList.map(menu => ({ name: decodeURIComponent(menu), count: 0 }));
