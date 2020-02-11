@@ -16,6 +16,11 @@ npm install
 $ npm start
 ```
 
+## Online
+
+* https://afrontend.github.io/game/menu-guide/
+* https://menu-guide.herokuapp.com/
+
 ## License
 
 MIT © Bob Hwang
