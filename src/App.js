@@ -96,8 +96,7 @@ function App() {
 
     return (
       <div key={ index } className="panel-block">
-        <div className="button is-success is-fullwidth" onClick={ inc }><span className="title is-6">{ m.name }</span></div>&nbsp;
-        <div className="button is-outlined is-1"><span className="title is-6">{ m.count }</span></div>&nbsp;
+        <div className="button is-success is-fullwidth" onClick={ inc }><span className="title is-6">{ `${m.name} x ${m.count}`  }</span></div>&nbsp;
         <div className="button is-danger is-1" onClick={ dec }><span className="title is-6">X</span></div>
       </div>
     );
