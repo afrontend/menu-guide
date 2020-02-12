@@ -120,7 +120,6 @@ function App() {
         </p>
         <div className="panel-block">
           <input onChange={e => setNewMenuName(e.target.value)} value={newMenuName} className="input" type="text" /> &nbsp;
-          <div className="button is-danger is-1" onClick={() => setNewMenuName('') }><span className="title is-6">X</span></div> &nbsp;
           <div className="button is-primary is-fullwidth" onClick={ addMenu }><span className="title is-6">이거요</span></div>
         </div>
         {
