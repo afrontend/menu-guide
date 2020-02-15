@@ -67,7 +67,7 @@ function App() {
 
   function Link({ menuList }) {
     const commaSeperatedMenus = getUrlParameter(menuList);
-    console.log(commaSeperatedMenus)
+    console.log(commaSeperatedMenus);
     const { origin, pathname } = window.location;
     const url = origin + pathname + commaSeperatedMenus;
     return (
@@ -82,14 +82,14 @@ function App() {
     const menuName = m.name;
     const inc = useCallback(
       () => {
-        increment(menuName)
+        increment(menuName);
       },
       [menuName]
     );
 
     const dec = useCallback(
       () => {
-        decrement(menuName)
+        decrement(menuName);
       },
       [menuName]
     );
