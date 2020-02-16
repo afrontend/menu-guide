@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import Button from '@material-ui/core/Button';
 import './App.css';
 
 function getJsonFromUrl(qs) {
@@ -120,7 +121,9 @@ function App() {
         </p>
         <div className="panel-block">
           <input onChange={e => setNewMenuName(e.target.value)} value={newMenuName} className="input" type="text" /> &nbsp;
-          <div className="button is-primary is-fullwidth" onClick={ addMenu }><span className="title is-6">이거요</span></div>
+          <Button className="is-fullwidth" variant="contained" color="primary" onClick={ addMenu }>
+            이거요
+          </Button>
         </div>
         {
           menuList && menuList.filter(m => {
