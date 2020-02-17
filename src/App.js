@@ -1,5 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import TextField from '@material-ui/core/TextField';
+import ListItem from '@material-ui/core/ListItem';
 import './App.css';
 
 function getJsonFromUrl(qs) {
@@ -31,10 +34,10 @@ function getMenus() {
     return menuList.map(menu => ({ name: decodeURIComponent(menu), count: 0 }));
   } else {
     return [
-      { name: '아이스 라떼'      , count: 0 },
-      { name: '아이스 아메리카노', count: 0 },
-      { name: '핫 라떼'          , count: 0 },
-      { name: '핫 아메리카노'    , count: 0 }
+      { name: '아아', count: 0 },
+      { name: '아라', count: 0 },
+      { name: '따아', count: 0 },
+      { name: '따라', count: 0 },
     ];
   }
 }
@@ -96,10 +99,14 @@ function App() {
     );
 
     return (
-      <div key={ index } className="panel-block">
-        <div className="button is-success is-fullwidth" onClick={ inc }><span className="title is-6">{ `${m.name} x ${m.count}`  }</span></div>&nbsp;
-        <div className="button is-danger is-1" onClick={ dec }><span className="title is-6">X</span></div>
-      </div>
+      <ListItem>
+        <div key={ index } >
+          <ButtonGroup color="primary" aria-label="outlined primary button group">
+            <Button className="button is-success" onClick={ inc }><span className="title is-6">{ `+ ${m.name} (${m.count})` }</span></Button>&nbsp;
+            <Button className="button is-danger" onClick={ dec }><span className="title is-6">x</span></Button>
+          </ButtonGroup>
+        </div>
+      </ListItem>
     );
   }
 
@@ -115,26 +122,21 @@ function App() {
 
   return (
     <div className="App">
-      <nav className="panel">
-        <p className="panel-tabs">
-          <a href="/" className="is-active">커피</a>
-        </p>
-        <div className="panel-block">
-          <input onChange={e => setNewMenuName(e.target.value)} value={newMenuName} className="input" type="text" /> &nbsp;
-          <Button className="is-fullwidth" variant="contained" color="primary" onClick={ addMenu }>
-            이거요
-          </Button>
-        </div>
-        {
-          menuList && menuList.filter(m => {
-            return newMenuName ? m.name.includes(newMenuName) : true;
-          }).map((m, index) => {
-            const menu = { menu: m, index };
-            return <Menu key={index} menu={menu} />;
-          })
-        }
-        <Link menuList={menuList} />
-      </nav>
+      <ListItem>
+        <TextField value={newMenuName} onChange={e => setNewMenuName(e.target.value)} id="standard-basic" label="Menu Name" />
+        <Button variant="contained" color="primary" onClick={ addMenu }>이거요</Button>
+      </ListItem>
+      {
+        menuList && menuList.filter(m => {
+          return newMenuName ? m.name.includes(newMenuName) : true;
+        }).map((m, index) => {
+          const menu = { menu: m, index };
+          return <Menu key={index} menu={menu} />;
+        })
+      }
+      <ListItem>
+      <Link menuList={menuList} />
+      </ListItem>
     </div>
   );
 }
