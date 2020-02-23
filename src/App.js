@@ -71,7 +71,6 @@ function App() {
 
   function Link({ menuList }) {
     const commaSeperatedMenus = getUrlParameter(menuList);
-    console.log(commaSeperatedMenus);
     const { origin, pathname } = window.location;
     const url = origin + pathname + commaSeperatedMenus;
     return (
@@ -135,7 +134,7 @@ function App() {
         })
       }
       <ListItem>
-      <Link menuList={menuList} />
+        <Link menuList={menuList} />
       </ListItem>
     </div>
   );
