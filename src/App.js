@@ -114,7 +114,7 @@ function App() {
 
   function addMenu() {
     if (newMenuName) {
-      menuList.push({ name: newMenuName, count: 0 });
+      menuList.push({ name: newMenuName, count: 1 });
       setMenuList(menuList);
       setNewMenuName('');
     }
