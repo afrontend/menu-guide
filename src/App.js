@@ -101,8 +101,9 @@ function App() {
       <ListItem>
         <div key={ index } >
           <ButtonGroup color="primary" aria-label="outlined primary button group">
-            <Button className="button is-success" onClick={ inc }><span className="title is-6">{ `+ ${m.name} (${m.count})` }</span></Button>&nbsp;
-            <Button className="button is-danger" onClick={ dec }><span className="title is-6">x</span></Button>
+            <Button className="button" onClick={ inc }><span className="title is-6">+</span></Button>
+            <Button className="button"><span className="title is-6">{ `${m.name} (${m.count})` }</span></Button>&nbsp;
+            <Button className="button" onClick={ dec }><span className="title is-6">-</span></Button>
           </ButtonGroup>
         </div>
       </ListItem>
