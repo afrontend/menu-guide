@@ -1,7 +1,7 @@
 {
   "name": "menu-guide",
   "version": "0.1.1",
-  "description": "주문할 메뉴 정리",
+  "description": "메뉴 고르기",
   "private": true,
   "homepage": "https://afrontend.github.io/menu-guide",
   "dependencies": {
