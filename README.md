@@ -1,6 +1,6 @@
 # menu-guide
 
-[![menu guide screenshot](https://agvim.files.wordpress.com/2019/12/menu-guide.png "menu guide screenshot")](https://afrontend.github.io/game/menu-guide/)
+[![menu guide screenshot](screenshot/menu-guide.png "menu guide screenshot")](https://afrontend.github.io/menu-guide/)
 
 ## Installation
 
@@ -14,7 +14,7 @@
 
 ## Online
 
-* https://afrontend.github.io/game/menu-guide/
+* https://afrontend.github.io/menu-guide/
 * https://menu-guide.herokuapp.com/
 
 ## License
