@@ -1,8 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import TextField from '@material-ui/core/TextField';
-import ListItem from '@material-ui/core/ListItem';
 import './App.css';
 
 function getJsonFromUrl(qs) {
@@ -41,7 +37,7 @@ function getMenus() {
   }
 }
 
-function App() {
+export function App() {
   const [ menuList, setMenuList ] = useState(getMenus());
 
   const increment = menuName => {
@@ -97,15 +93,12 @@ function App() {
     );
 
     return (
-      <ListItem>
-        <div key={ index } >
-          <ButtonGroup color="primary" aria-label="outlined primary button group">
-            <Button className="button" onClick={ inc }><span className="title is-6">+</span></Button>
-            <Button className="button"><span className="title is-6">{ `${m.name} (${m.count})` }</span></Button>&nbsp;
-            <Button className="button" onClick={ dec }><span className="title is-6">-</span></Button>
-          </ButtonGroup>
-        </div>
-      </ListItem>
+      <span>test</span>
+      // <div key={ index } >
+        // <button className="button"><span className="title is-6">{ `${m.name} (${m.count})` }</span></button>&nbsp;
+        // <button className="button" onClick={ inc }><span className="title is-6">+</span></button>
+        // <button className="button" onClick={ dec }><span className="title is-6">-</span></button>
+      // </div>
     );
   }
 
@@ -127,10 +120,8 @@ function App() {
 
   return (
     <div className="App">
-      <ListItem>
-        <TextField value={newMenuName} onKeyPress={ keyPress } onChange={e => setNewMenuName(e.target.value)} id="standard-basic" label="Menu Name" />
-        <Button variant="contained" color="primary" onClick={ addMenu }>이거요</Button>
-      </ListItem>
+      <input type="text" value={newMenuName} onKeyPress={ keyPress } onChange={e => setNewMenuName(e.target.value)} id="standard-basic" label="Menu Name" />
+      <button variant="contained" color="primary" onClick={ addMenu }>이거요</button>
       {
         menuList && menuList.filter(m => {
           return newMenuName ? m.name.includes(newMenuName) : true;
@@ -139,11 +130,8 @@ function App() {
           return <Menu key={index} menu={menu} />;
         })
       }
-      <ListItem>
-        <Link menuList={menuList} />
-      </ListItem>
+      <Link menuList={menuList} />
     </div>
   );
 }
 
-export default App;
