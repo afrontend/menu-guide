@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  min-height: 100vh;
+  color: #fff;
+  background-color: #282c34;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  display: flex;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+/*# sourceMappingURL=index.34b7aba5.css.map */
