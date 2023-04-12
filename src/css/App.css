@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header input {
+  flex: 5;
+}
+
+.header button {
+  flex: 1;
+  background-color: #8c7ae6;
+  border-color: #8c7ae6;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-group > button {
+  width: 50px;
+  background-color: #e1b12c;
+  border-color: #e1b12c;
+}
+
+.button-group > button:first-child {
+  width: 200px;
+}

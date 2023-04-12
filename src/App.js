@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import './App.css';
+import './css/App.css';
 
 function getJsonFromUrl(qs) {
   if (!qs) return {};
@@ -93,12 +93,13 @@ export function App() {
     );
 
     return (
-      <span>test</span>
-      // <div key={ index } >
-        // <button className="button"><span className="title is-6">{ `${m.name} (${m.count})` }</span></button>&nbsp;
-        // <button className="button" onClick={ inc }><span className="title is-6">+</span></button>
-        // <button className="button" onClick={ dec }><span className="title is-6">-</span></button>
-      // </div>
+      <div key={ index } className="button-group">
+        <button>{ `${m.name} (${m.count})` }</button>
+        &nbsp;
+        <button onClick={ inc }>+</button>
+        &nbsp;
+        <button onClick={ dec }>-</button>
+      </div>
     );
   }
 
@@ -112,16 +113,13 @@ export function App() {
     }
   }
 
-  function keyPress(e) {
-    if (e.key === 'Enter') {
-      addMenu();
-    }
-  }
-
   return (
     <div className="App">
-      <input type="text" value={newMenuName} onKeyPress={ keyPress } onChange={e => setNewMenuName(e.target.value)} id="standard-basic" label="Menu Name" />
-      <button variant="contained" color="primary" onClick={ addMenu }>이거요</button>
+      <div className="header">
+        <input type="text" value={newMenuName} onChange={e => setNewMenuName(e.target.value)} label="Menu Name" />
+        &nbsp;
+        <button onClick={ addMenu }>Add</button>
+      </div>
       {
         menuList && menuList.filter(m => {
           return newMenuName ? m.name.includes(newMenuName) : true;
