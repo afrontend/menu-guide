@@ -7,8 +7,7 @@
   "scripts": {
     "serve": "parcel index.html",
     "watch": "parcel watch index.html",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "license": "MIT",
   "private": true,
