@@ -20,7 +20,7 @@
 }
 
 .header input {
-  flex: 5;
+  flex: 6;
 }
 
 .header button {
@@ -30,19 +30,20 @@
 }
 
 .button-group {
+  width: 100%;
   justify-content: center;
   align-items: center;
   display: flex;
 }
 
 .button-group > button {
-  width: 50px;
   background-color: #e1b12c;
   border-color: #e1b12c;
+  flex: 1;
 }
 
 .button-group > button:first-child {
-  width: 200px;
+  flex: 7;
 }
 
 body {
