@@ -15,7 +15,7 @@
 ## Online
 
 * https://afrontend.github.io/menu-guide/
-* https://menu-guide.herokuapp.com/
+* https://menu-guide.onrender.com/
 
 ## License
 
