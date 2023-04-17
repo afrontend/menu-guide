@@ -115,20 +115,22 @@ export function App() {
 
   return (
     <div className="App">
-      <div className="header">
-        <input type="text" value={newMenuName} onChange={e => setNewMenuName(e.target.value)} label="Menu Name" />
-        &nbsp;
-        <button onClick={ addMenu }>Add</button>
+      <div>
+        <div className="header">
+          <input type="text" value={newMenuName} onChange={e => setNewMenuName(e.target.value)} label="Menu Name" />
+          &nbsp;
+          <button onClick={ addMenu }>Add</button>
+        </div>
+        {
+          menuList && menuList.filter(m => {
+            return newMenuName ? m.name.includes(newMenuName) : true;
+          }).map((m, index) => {
+            const menu = { menu: m, index };
+            return <Menu key={index} menu={menu} />;
+          })
+        }
+        <Link menuList={menuList} />
       </div>
-      {
-        menuList && menuList.filter(m => {
-          return newMenuName ? m.name.includes(newMenuName) : true;
-        }).map((m, index) => {
-          const menu = { menu: m, index };
-          return <Menu key={index} menu={menu} />;
-        })
-      }
-      <Link menuList={menuList} />
     </div>
   );
 }

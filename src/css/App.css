@@ -1,16 +1,8 @@
 .App {
-  text-align: center;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-items: center;
   justify-content: center;
-}
-
-.App-link {
-  color: #09d3ac;
+  height: 100vh;
 }
 
 .header {
