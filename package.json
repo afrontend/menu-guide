@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "메뉴 고르기",
   "repository": "https://afrontend.github.io/menu-guide.git",
-  "homepage": "https://afrontend.github.io/menu-guide",
+  "homepage": "https://menu-guide.onrender.com/",
   "author": "afrontend <autoscripts@gmail.com>",
   "scripts": {
     "serve": "parcel index.html",
